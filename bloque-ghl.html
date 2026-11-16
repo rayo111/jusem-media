@@ -1,0 +1,400 @@
+<!-- ====== INICIO BLOQUE JUSEM (pegar en GHL: Custom JS/HTML) ====== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.jh{--navy:#04213F;--navy2:#062E57;--blue:#0B5CAB;--sky:#5DB3F0;--green:#7AC143;--green2:#5FA82E;--ink:#0B1F33;--mut:#51657A;--line:#DCE6F0;--bg:#F3F7FB;--r:20px;
+  font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:#fff;line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.jh *,.jh *::before,.jh *::after{box-sizing:border-box}
+.jh img,.jh video{max-width:100%;height:auto;display:block}
+.jh h1,.jh h2,.jh h3{font-family:Montserrat,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.jh p{margin:0}
+.jh a{color:inherit;text-decoration:none}
+.jh button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.jh :focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+.jh .w{width:min(1160px,100% - 40px);margin-inline:auto}
+.jh .sec{padding:clamp(64px,9vw,112px) 0}
+.jh .eye{font:700 12px/1 Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--green2);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.jh .eye::before{content:"";width:34px;height:2px;background:currentColor}
+.jh .dark .eye{color:var(--green)}
+.jh h2{font-size:clamp(30px,4.6vw,50px);font-weight:800}
+.jh .lead{color:var(--mut);font-size:clamp(17px,1.6vw,19px);max-width:60ch;margin-top:18px}
+.jh .dark{background:var(--navy);color:#fff}
+.jh .dark .lead{color:#B9CCE0}
+.jh .g{color:var(--green)}
+.jh .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:14px;font:800 14px/1 Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:var(--green);color:var(--navy);transition:transform .2s,box-shadow .2s,background .2s;box-shadow:0 10px 26px -10px rgba(122,193,67,.8)}
+.jh .btn:hover{transform:translateY(-2px);background:#8BD152}
+.jh .btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+.jh .btn.ghost:hover{box-shadow:inset 0 0 0 2px #fff;background:rgba(255,255,255,.06)}
+.jh .btn svg{width:18px;height:18px}
+/* nav */
+.jh .nav{position:sticky;top:0;z-index:50;background:rgba(4,33,63,.92);backdrop-filter:blur(12px);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.jh .nav .w{display:flex;align-items:center;gap:24px;height:68px}
+.jh .logo{font:900 17px/1 Montserrat,sans-serif;letter-spacing:.06em;display:flex;flex-direction:column;gap:5px}
+.jh .logo small{font:600 10px/1 Inter,sans-serif;letter-spacing:.18em;color:var(--green);text-transform:uppercase}
+.jh .nav nav{margin-left:auto;display:flex;gap:28px;font-weight:600;font-size:14px}
+.jh .nav nav a{opacity:.85;padding:10px 0}
+.jh .nav nav a:hover{opacity:1;color:var(--green)}
+.jh .nav .btn{min-height:44px;padding:0 20px;font-size:12px;white-space:nowrap}
+/* hero */
+.jh .hero{--W:min(820px,100vw);--F:min(12vw,148px);background:var(--navy);color:#fff;position:relative;overflow:hidden;text-align:center}
+.jh .scene{position:relative;overflow:hidden;height:calc(var(--W) * 1.2988)}
+.jh .scene .fill{position:absolute;inset:0;background:url(https://files.leadconnectorhq.com/file/6afb924d6b9476a3ac9d9a1d/hero-fill.jpg) center/100% 100%}
+.jh .stage{position:absolute;left:50%;top:0;width:var(--W);height:100%;margin-left:calc(var(--W) / -2)}
+.jh .stage img{position:absolute;inset:0;width:100%;height:100%!important}
+.jh .stage .bg{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%)}
+.jh .scene .tint{position:absolute;inset:0;background:radial-gradient(60% 34% at 50% 52%,rgba(18,110,210,.18),transparent 70%),linear-gradient(180deg,rgba(4,33,63,.8) 0%,rgba(7,58,122,.52) 24%,rgba(11,84,165,.36) 55%,rgba(6,46,87,.5) 80%,rgba(4,33,63,.9) 93%,var(--navy) 100%)}
+.jh .stage .fr{z-index:2;-webkit-mask-image:linear-gradient(to bottom,#000 95%,transparent 100%);mask-image:linear-gradient(to bottom,#000 95%,transparent 100%);filter:drop-shadow(0 0 30px rgba(2,20,39,.45));animation:jhfade 1.1s .2s both}
+.jh .hero .ttl{position:absolute;left:0;right:0;z-index:1;bottom:calc(100% - var(--W) * 0.4712 - var(--F) * .42);display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.jh .hero .eye{color:var(--green);margin-bottom:14px}.jh .hero .eye::after{content:"";width:34px;height:2px;background:currentColor}
+.jh h1{font-weight:900;display:flex;flex-direction:column;align-items:center;animation:jhup .9s both}
+.jh h1 small{font:700 clamp(16px,2.3vw,26px)/1.2 Montserrat,sans-serif;letter-spacing:.02em;margin-bottom:8px;color:#E3EEF9}
+.jh h1 b{font-size:var(--F);line-height:.98;letter-spacing:-.015em;text-transform:uppercase;white-space:nowrap;font-weight:900;text-shadow:0 6px 30px rgba(2,20,39,.45)}
+.jh h1 b.o{color:var(--green)}
+.jh .hero .below{position:relative;z-index:3;margin-top:calc(var(--W) * -.09);padding-bottom:clamp(48px,6vw,80px);display:flex;flex-direction:column;align-items:center}
+.jh .hero p.sub{font-size:clamp(17px,1.7vw,20px);color:#D2E2F2;max-width:56ch;margin:0 0 26px}
+.jh .cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.jh .stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px;width:min(560px,100%)}
+.jh .stats div+div{border-left:1px solid rgba(255,255,255,.16)}
+.jh .stats div{padding:0 10px}
+.jh .stats b{font:800 clamp(24px,3vw,32px)/1 Montserrat,sans-serif;display:block}
+.jh .stats span{font:600 11px/1.3 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9FC0E0;display:block;margin-top:8px}
+@keyframes jhup{from{opacity:0;transform:translateY(30px)}}
+@keyframes jhfade{from{opacity:0}}
+/* marquee */
+.jh .mq{background:var(--green);color:var(--navy);overflow:hidden;padding:16px 0;font:800 14px/1 Montserrat,sans-serif;letter-spacing:.12em;white-space:nowrap}
+.jh .mq div{display:inline-flex;gap:44px;padding-right:44px;animation:jhmq 28s linear infinite}
+.jh .mq span::after{content:"+";margin-left:44px;opacity:.6}
+@keyframes jhmq{to{transform:translateX(-50%)}}
+/* cards */
+.jh .c3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.jh .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 28px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.jh .card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(6,46,87,.45);border-color:var(--sky)}
+.jh .card .n{font:900 15px/1 Montserrat,sans-serif;color:var(--blue);background:#E6F1FB;display:inline-grid;place-items:center;width:46px;height:46px;border-radius:12px;margin-bottom:22px}
+.jh .card h3{font-size:21px;font-weight:800;margin-bottom:10px}
+.jh .card p{color:var(--mut);font-size:16px}
+.jh .soft{background:var(--bg)}
+/* reels */
+.jh .reels{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 20px 22px;margin:44px -20px 0;scrollbar-width:thin;scrollbar-color:#3B6C9E transparent}
+.jh .reel{flex:0 0 min(250px,68vw);scroll-snap-align:center;position:relative;border-radius:22px;overflow:hidden;aspect-ratio:9/16;background:#000;outline:1px solid rgba(255,255,255,.14)}
+.jh .reel video,.jh .reel img{width:100%;height:100%;object-fit:cover}
+.jh .reel button{position:absolute;inset:0;width:100%;display:grid;place-items:center;background:linear-gradient(180deg,transparent 45%,rgba(4,33,63,.85))}
+.jh .reel button span{width:64px;height:64px;border-radius:50%;background:var(--green);display:grid;place-items:center;transition:transform .2s;box-shadow:0 0 0 10px rgba(122,193,67,.25)}
+.jh .reel button:hover span{transform:scale(1.1)}
+.jh .reel button svg{width:24px;height:24px;margin-left:4px;fill:var(--navy)}
+.jh .reel em{position:absolute;left:16px;right:16px;bottom:16px;font:700 14px/1.25 Montserrat,sans-serif;font-style:normal;color:#fff;text-align:left;pointer-events:none}
+.jh .rnav{display:flex;gap:10px;margin-top:6px}
+.jh .rnav button{width:48px;height:48px;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(255,255,255,.3);display:grid;place-items:center;font-size:20px}
+.jh .rnav button:hover{background:var(--green);color:var(--navy);box-shadow:none}
+/* steps */
+.jh .steps{display:grid;grid-template-columns:320px 1fr;gap:28px;margin-top:48px;align-items:stretch}
+.jh .tabs{display:flex;flex-direction:column;gap:10px}
+.jh .tabs button{display:flex;align-items:center;gap:16px;text-align:left;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:#fff;font:700 17px/1.2 Montserrat,sans-serif;min-height:64px;transition:.2s}
+.jh .tabs button b{font-size:13px;color:var(--blue);background:#E6F1FB;border-radius:10px;width:38px;height:38px;display:grid;place-items:center;flex:none}
+.jh .tabs button[aria-selected=true]{background:var(--navy2);color:#fff;border-color:var(--navy2);transform:translateX(6px)}
+.jh .tabs button[aria-selected=true] b{background:var(--green);color:var(--navy)}
+.jh .pane{background:linear-gradient(150deg,var(--navy2),#0B5CAB);color:#fff;border-radius:26px;padding:clamp(28px,4vw,52px);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;min-height:340px}
+.jh .pane .big{position:absolute;right:-10px;bottom:-60px;font:900 260px/1 Montserrat,sans-serif;color:rgba(255,255,255,.07)}
+.jh .pane h3{font-size:clamp(26px,3.4vw,38px);font-weight:800;margin-bottom:14px}
+.jh .pane p{color:#D2E2F2;font-size:18px;max-width:46ch}
+.jh .bar{height:6px;background:rgba(255,255,255,.18);border-radius:9px;margin-top:30px;max-width:320px;overflow:hidden}
+.jh .bar i{display:block;height:100%;background:var(--green);border-radius:9px;transition:width .5s}
+/* about */
+.jh .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.jh .duo{position:relative;padding:0 40px 48px 0}
+.jh .duo img{border-radius:24px;object-fit:cover;width:100%;aspect-ratio:4/5}
+.jh .duo img+img{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:3/4;border:6px solid #fff;box-shadow:0 24px 50px -24px rgba(6,46,87,.6)}
+.jh .duo .tag{position:absolute;left:-10px;top:22px;background:var(--green);color:var(--navy);font:800 11px/1 Montserrat,sans-serif;letter-spacing:.14em;padding:10px 14px;border-radius:10px}
+.jh .about p{color:var(--mut);margin-top:16px}
+.jh blockquote{margin:28px 0;padding:6px 0 6px 22px;border-left:4px solid var(--green);font:700 clamp(19px,2.2vw,24px)/1.35 Montserrat,sans-serif;color:var(--navy2)}
+.jh blockquote cite{display:block;font:700 11px/1 Inter,sans-serif;letter-spacing:.18em;color:var(--mut);margin-top:12px;font-style:normal}
+/* fit */
+.jh .fit{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;margin-top:44px;align-items:start}
+.jh .chk{display:grid;gap:12px}
+.jh .chk button{display:flex;gap:16px;align-items:center;text-align:left;padding:16px 18px;min-height:64px;border-radius:16px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);font-weight:500;transition:.2s;width:100%}
+.jh .chk button i{width:28px;height:28px;border-radius:8px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.45);flex:none;display:grid;place-items:center;font-style:normal;font-weight:900;color:transparent;transition:.2s}
+.jh .chk button[aria-pressed=true]{background:rgba(122,193,67,.16);box-shadow:inset 0 0 0 2px var(--green)}
+.jh .chk button[aria-pressed=true] i{background:var(--green);box-shadow:none;color:var(--navy)}
+.jh .res{background:#fff;color:var(--ink);border-radius:24px;padding:30px;position:sticky;top:92px}
+.jh .res .ring{--p:0;width:132px;height:132px;border-radius:50%;background:conic-gradient(var(--green2) calc(var(--p)*1%),#E3ECF4 0);display:grid;place-items:center;margin-bottom:20px}
+.jh .res .ring b{width:104px;height:104px;border-radius:50%;background:#fff;display:grid;place-items:center;font:900 30px/1 Montserrat,sans-serif;color:var(--navy2)}
+.jh .res h3{font-size:22px;font-weight:800;margin-bottom:8px}
+.jh .res p{color:var(--mut);font-size:16px;margin-bottom:20px}
+.jh .res .btn{width:100%}
+/* form */
+.jh .apply{background:linear-gradient(160deg,var(--navy),#0A4A8C)}
+.jh .apply .w{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,64px);align-items:start}
+.jh .apply ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px;color:#D2E2F2}
+.jh .apply li{display:flex;gap:12px}.jh .apply li::before{content:"✓";color:var(--green);font-weight:900}
+.jh .fbox{background:#fff;color:var(--ink);border-radius:26px;padding:clamp(22px,3.4vw,38px);box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+.jh .fbox .top{display:flex;justify-content:space-between;align-items:center;gap:12px;font:700 11px/1.3 Montserrat,sans-serif;letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin-bottom:14px}
+.jh .fbox .top span:last-child{color:var(--green2);display:flex;align-items:center;gap:8px}
+.jh .fbox .top span:last-child::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green2);animation:jhpulse 1.6s infinite}
+@keyframes jhpulse{50%{opacity:.3}}
+.jh .prog{height:6px;border-radius:9px;background:#E3ECF4;overflow:hidden;margin-bottom:26px}.jh .prog i{display:block;height:100%;width:25%;background:var(--green2);transition:width .4s}
+.jh fieldset{border:0;padding:0;margin:0;display:none}.jh fieldset.on{display:block;animation:jhin .35s}
+@keyframes jhin{from{opacity:0;transform:translateX(14px)}}
+.jh legend{font:800 22px/1.2 Montserrat,sans-serif;padding:0;margin-bottom:18px}
+.jh label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
+.jh input[type=text],.jh input[type=tel],.jh input[type=email],.jh input[type=number],.jh select,.jh textarea{width:100%;min-height:52px;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;font-size:16px;background:#F8FAFC;color:var(--ink)}
+.jh input:focus,.jh select:focus,.jh textarea:focus{outline:0;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(11,92,171,.14)}
+.jh .opts{display:grid;gap:10px}
+.jh .opts label{margin:0;display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:12px;padding:14px;min-height:52px;font-weight:500;font-size:16px;cursor:pointer}
+.jh .opts label:has(input:checked){border-color:var(--green2);background:#F1F9EA}
+.jh .opts input{width:20px;height:20px;accent-color:var(--green2)}
+.jh .fnav{display:flex;gap:12px;margin-top:24px}.jh .fnav .btn{flex:1}
+.jh .fnav .back{flex:0 0 auto;background:#EEF3F8;box-shadow:none;color:var(--navy2)}
+.jh .legal{font-size:12px;color:var(--mut);margin-top:14px;display:flex;gap:10px;align-items:flex-start}
+.jh .legal input{margin-top:3px;width:18px;height:18px;flex:none}
+.jh .err{color:#B42318;font-size:14px;font-weight:600;margin-top:12px;min-height:20px}
+.jh .done{text-align:center;padding:30px 0}.jh .done b{width:72px;height:72px;border-radius:50%;background:var(--green);display:grid;place-items:center;margin:0 auto 18px;font-size:34px;color:var(--navy)}
+.jh .ghl{min-height:900px}.jh .ghl iframe{width:100%;min-height:900px;border:0}
+/* faq */
+.jh .faq{max-width:820px;margin:44px auto 0;display:grid;gap:12px}
+.jh details{border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
+.jh summary{list-style:none;cursor:pointer;padding:20px 22px;font:700 17px/1.3 Montserrat,sans-serif;display:flex;justify-content:space-between;gap:16px;align-items:center;min-height:64px}
+.jh summary::-webkit-details-marker{display:none}
+.jh summary::after{content:"+";font-size:26px;color:var(--blue);transition:transform .25s;flex:none}
+.jh details[open] summary::after{transform:rotate(45deg)}
+.jh details p{padding:0 22px 22px;color:var(--mut)}
+/* final */
+.jh .fin{position:relative;color:#fff;text-align:center;overflow:hidden;background:var(--navy)}
+.jh .fin img{position:absolute;inset:0;width:100%;height:100%!important;object-fit:cover;object-position:50% 62%;opacity:.42}
+.jh .fin::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,33,63,.55),rgba(4,33,63,.92))}
+.jh .fin .w{position:relative;z-index:1;display:grid;justify-items:center;gap:22px}
+.jh .fin h2{font-size:clamp(34px,6vw,64px);font-weight:900}
+.jh footer{background:#021427;color:#9FB5CC;font-size:14px;padding:40px 0 110px}
+.jh footer .w{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:center}
+.jh footer .soc{display:flex;gap:10px}.jh footer .soc a{min-height:44px;padding:0 16px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);display:inline-flex;align-items:center;color:#fff;font-weight:600}
+.jh footer p{max-width:70ch;font-size:12px;flex-basis:100%}
+.jh .mcta{display:none}
+/* reveal */
+.jh .rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}.jh .rv.in{opacity:1;transform:none}
+@media (max-width:920px){
+ .jh{font-size:16px}
+ .jh .nav nav{display:none}.jh .nav .btn{margin-left:auto}
+ .jh .c3,.jh .steps,.jh .about,.jh .fit,.jh .apply .w{grid-template-columns:1fr}
+.jh .logo small{font-size:9px;letter-spacing:.12em}
+ .jh .tabs{flex-direction:row;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;margin:0 -20px;padding-inline:20px}
+ .jh .tabs button{flex:0 0 auto;scroll-snap-align:start;font-size:15px;min-height:56px}
+ .jh .tabs button[aria-selected=true]{transform:none}
+ .jh .pane{min-height:280px}.jh .pane .big{font-size:180px}
+ .jh .res{position:static}
+ .jh .duo{max-width:440px;margin-inline:auto}
+ .jh .mcta{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:60;transform:translateY(140%);transition:transform .35s}
+ .jh .mcta.show{transform:none}.jh .mcta .btn{width:100%;box-shadow:0 14px 34px -8px rgba(0,0,0,.55)}
+}
+@media (max-width:420px){.jh .cta .btn{width:100%}.jh .cta{width:100%}}
+@media (prefers-reduced-motion:reduce){.jh *{animation:none!important;transition:none!important;scroll-behavior:auto!important}.jh .rv{opacity:1;transform:none}}
+</style>
+
+<div class="jh" id="jh">
+<header class="nav"><div class="w">
+  <a class="logo" href="#jh" aria-label="Jusem Hajali, inicio">JUSEM HAJALI<small>Icaza Jammoul Organization</small></a>
+  <nav aria-label="Principal"><a href="#oportunidad">Oportunidad</a><a href="#videos">Videos</a><a href="#metodo">Método</a><a href="#sobre-mi">Sobre mí</a><a href="#preguntas">Preguntas</a></nav>
+  <a class="btn" href="#aplicar">Aplicar ahora</a>
+</div></header>
+
+<main>
+<section class="hero">
+  <div class="scene">
+    <div class="fill"></div>
+    <div class="stage"><img class="bg" src="https://files.leadconnectorhq.com/file/6afb923838d69cb41d446794/hero-bg.jpg" alt="" fetchpriority="high"><img class="fr" src="https://files.leadconnectorhq.com/file/6afb92466b9476a3ac9d9924/hero-front.webp" alt="Jusem Hajali de pie dentro de un auto deportivo turquesa con las puertas abiertas hacia arriba"></div>
+    <div class="tint"></div>
+    <div class="ttl"><div class="eye">Jusem Hajali · Globe Life</div>
+    <h1 id="jhH1"><small>Una oportunidad real de</small><b>Crecimiento</b><b class="o">y libertad</b></h1></div>
+  </div>
+  <div class="w">
+  <div class="below">
+    <p class="sub">Un entorno donde el crecimiento y el éxito no tienen límites. Te damos la capacitación, la mentoría y el sistema para que construyas en Globe Life una carrera donde tú decides tu éxito.</p>
+    <div class="cta"><a class="btn" href="#aplicar">Quiero aplicar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn ghost" href="#videos">Ver videos</a></div>
+    <div class="stats"><div><b>0</b><span>Experiencia requerida</span></div><div><b>100%</b><span>Horario flexible</span></div><div><b>1 a 1</b><span>Mentoría directa</span></div></div>
+  </div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div>
+  <span>CAPACITACIÓN DE PRIMER NIVEL</span><span>EXCELENTE REMUNERACIÓN</span><span>DESARROLLO CONTINUO</span><span>MENTORÍA DIRECTA</span><span>TRABAJA DESDE DONDE QUIERAS</span><span>TÚ DECIDES TU ÉXITO</span>
+  <span>CAPACITACIÓN DE PRIMER NIVEL</span><span>EXCELENTE REMUNERACIÓN</span><span>DESARROLLO CONTINUO</span><span>MENTORÍA DIRECTA</span><span>TRABAJA DESDE DONDE QUIERAS</span><span>TÚ DECIDES TU ÉXITO</span>
+</div></div>
+
+<section class="sec" id="oportunidad"><div class="w">
+  <div class="eye rv">La oportunidad</div>
+  <h2 class="rv">Te ayudamos a alcanzar tus metas.<br>No empiezas solo.</h2>
+  <p class="lead rv">La mayoría no se queda atrás por falta de talento, sino por intentarlo sin guía. Aquí entras a un equipo que te forma paso a paso.</p>
+  <div class="c3">
+    <article class="card rv"><div class="n">01</div><h3>Capacitación de primer nivel</h3><p>Aprendes el producto, el proceso de venta y cómo atender a cada familia con confianza desde el primer día.</p></article>
+    <article class="card rv"><div class="n">02</div><h3>Excelente remuneración</h3><p>Trabajas con un modelo de comisiones: tus resultados dependen de tu esfuerzo, tu constancia y tu crecimiento.</p></article>
+    <article class="card rv"><div class="n">03</div><h3>Desarrollo continuo</h3><p>Avanzas a tu ritmo: de tus primeras ventas a formar y liderar tu propio equipo dentro de la organización.</p></article>
+  </div>
+</div></section>
+
+<section class="sec dark" id="videos"><div class="w">
+  <div class="eye rv">En mis palabras</div>
+  <h2 class="rv">Conóceme en <span class="g">30 segundos</span></h2>
+  <p class="lead rv">Toca un video y escucha de primera mano cómo es este negocio, a quién buscamos y por qué el momento es ahora.</p>
+  <div class="reels" id="jhReels" tabindex="0" aria-label="Videos de Jusem"></div>
+  <div class="rnav"><button type="button" id="jhPrev" aria-label="Videos anteriores">←</button><button type="button" id="jhNext" aria-label="Más videos">→</button></div>
+</div></section>
+
+<section class="sec soft" id="metodo"><div class="w">
+  <div class="eye rv">Cómo funciona</div>
+  <h2 class="rv">Aplica. Licénciate. Entrénate. Lidera.</h2>
+  <p class="lead rv">Un camino claro, con acompañamiento en cada etapa. Toca cada paso para ver qué pasa.</p>
+  <div class="steps rv">
+    <div class="tabs" role="tablist" aria-label="Pasos del proceso" id="jhTabs"></div>
+    <div class="pane" role="tabpanel" id="jhPane" aria-live="polite"><div class="big" id="jhBig">1</div><h3 id="jhT"></h3><p id="jhD"></p><div class="bar"><i id="jhBar"></i></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="sobre-mi"><div class="w about">
+  <div class="duo rv"><span class="tag">ICAZA JAMMOUL ORGANIZATION</span><img src="https://files.leadconnectorhq.com/file/6afb925e6b9476a3ac9d9bdc/office-wide.jpg" alt="Jusem Hajali trabajando en su oficina" loading="lazy" width="1100" height="1650"><img src="https://files.leadconnectorhq.com/file/6afb926454a6494bd6d5656c/bw-drive.jpg" alt="Jusem Hajali al volante, foto en blanco y negro" loading="lazy" width="1100" height="1650"></div>
+  <div>
+    <div class="eye rv">Quién soy</div>
+    <h2 class="rv">Mi nombre es Jusem Hajali</h2>
+    <p class="rv">Formo parte de Icaza Jammoul Organization, en Globe Life, y esta carrera me dio algo que ningún empleo tradicional me había dado: control sobre mi tiempo, mis metas y mi crecimiento.</p>
+    <p class="rv">Hoy lidero una comunidad de emprendedores que trabajan desde donde quieren, y mi trabajo es mostrarte el mismo camino: con entrenamiento, con un sistema probado y con alguien al lado que ya lo recorrió.</p>
+    <blockquote class="rv">“Da el primer paso hacia una carrera donde tú decides tu éxito.”<cite>— JUSEM HAJALI</cite></blockquote>
+    <a class="btn rv" href="#aplicar">Agendar mi llamada</a>
+  </div>
+</div></section>
+
+<section class="sec dark" id="perfil"><div class="w">
+  <div class="eye rv">¿Es para ti?</div>
+  <h2 class="rv">Buscamos personas con <span class="g">hambre de crecer</span></h2>
+  <p class="lead rv">Marca las frases que te describen y descubre si tienes el perfil.</p>
+  <div class="fit">
+    <div class="chk rv" id="jhChk"></div>
+    <aside class="res rv" aria-live="polite"><div class="ring" id="jhRing"><b id="jhPct">0/5</b></div><h3 id="jhRT">Marca lo que te describe</h3><p id="jhRD">No necesitas cumplir todo: lo más importante son las ganas de aprender.</p><a class="btn" href="#aplicar">Solicitar mi llamada</a></aside>
+  </div>
+</div></section>
+
+<section class="sec apply dark" id="aplicar"><div class="w">
+  <div>
+    <div class="eye">Solicita tu llamada de admisión</div>
+    <h2>Da el primer paso hacia tu futuro</h2>
+    <p class="lead">Déjanos tu información y recibe una llamada de admisión para acceder a una comunidad de emprendedores que ya trabajan desde donde quieren.</p>
+    <ul><li>Toma menos de 2 minutos</li><li>Te contactamos personalmente</li><li>Sin costo y sin compromiso</li></ul>
+  </div>
+  <div class="fbox">
+    <div class="top"><span>Solicitud · Jusem Hajali</span><span>Entrevistas abiertas</span></div>
+    <div id="jhForm"></div>
+  </div>
+</div></section>
+
+<section class="sec soft" id="preguntas"><div class="w">
+  <div class="eye rv" style="justify-content:center">Preguntas frecuentes</div>
+  <h2 class="rv" style="text-align:center">Resolvemos tus dudas</h2>
+  <div class="faq">
+    <details class="rv"><summary>¿Necesito experiencia en ventas?</summary><p>No. Te entrenamos desde cero: producto, proceso de venta y atención al cliente. Lo que sí necesitas es disposición para aprender y aplicar.</p></details>
+    <details class="rv"><summary>¿Necesito licencia de seguros de vida?</summary><p>Para vender sí, pero no para aplicar. Si aún no la tienes, te orientamos paso a paso para obtenerla.</p></details>
+    <details class="rv"><summary>¿Cómo funcionan los ingresos?</summary><p>Es un modelo de comisiones. No hay sueldo fijo ni techo: lo que generas depende de tu esfuerzo, tu constancia y tu crecimiento. Los resultados varían en cada persona.</p></details>
+    <details class="rv"><summary>¿Tengo que cumplir un horario fijo?</summary><p>No. Tú organizas tu tiempo. Eso sí: la flexibilidad funciona cuando hay disciplina y compromiso con tus metas.</p></details>
+    <details class="rv"><summary>¿Qué pasa después de llenar el formulario?</summary><p>Revisamos tu solicitud y te contactamos para una llamada de admisión, donde te explicamos la oportunidad y resolvemos tus dudas.</p></details>
+  </div>
+</div></section>
+
+<section class="sec fin"><img src="https://files.leadconnectorhq.com/file/6afb926ba30b968e3fd7cf06/car-front-stand.jpg" alt="" loading="lazy"><div class="w">
+  <div class="eye" style="color:var(--green)">Tu momento es ahora</div>
+  <h2>Tú decides<br>tu éxito.</h2>
+  <p style="color:#D2E2F2;max-width:44ch">Los cupos para llamadas de admisión son limitados. Da el primer paso hoy.</p>
+  <a class="btn" href="#aplicar">Aplicar ahora</a>
+</div></section>
+</main>
+
+<footer><div class="w">
+  <a class="logo" href="#jh" style="color:#fff">JUSEM HAJALI<small>Icaza Jammoul Organization</small></a>
+  <div class="soc" id="jhSoc"></div>
+  <p>© 2026 Jusem Hajali. Todos los derechos reservados. Los resultados individuales varían y dependen del esfuerzo de cada persona. Esta página no garantiza ingresos.</p>
+</div></footer>
+<div class="mcta" id="jhM"><a class="btn" href="#aplicar">Aplicar ahora</a></div>
+</div>
+
+<script>
+(function(){
+/* ====== CONFIGURACIÓN ====== */
+var U={"hero-bg.jpg": "https://files.leadconnectorhq.com/file/6afb923838d69cb41d446794/hero-bg.jpg", "hero-front.webp": "https://files.leadconnectorhq.com/file/6afb92466b9476a3ac9d9924/hero-front.webp", "hero-fill.jpg": "https://files.leadconnectorhq.com/file/6afb924d6b9476a3ac9d9a1d/hero-fill.jpg", "office-wide.jpg": "https://files.leadconnectorhq.com/file/6afb925e6b9476a3ac9d9bdc/office-wide.jpg", "bw-drive.jpg": "https://files.leadconnectorhq.com/file/6afb926454a6494bd6d5656c/bw-drive.jpg", "car-front-stand.jpg": "https://files.leadconnectorhq.com/file/6afb926ba30b968e3fd7cf06/car-front-stand.jpg", "poster-r1.jpg": "https://files.leadconnectorhq.com/file/6afb927138d69cb41d446cfb/poster-r1.jpg", "poster-r2.jpg": "https://files.leadconnectorhq.com/file/6afb92859d4ebed1c85e5941/poster-r2.jpg", "poster-r3.jpg": "https://files.leadconnectorhq.com/file/6afb928ca30b968e3fd7d1f2/poster-r3.jpg", "poster-r4.jpg": "https://files.leadconnectorhq.com/file/6afb92936b9476a3ac9da061/poster-r4.jpg", "poster-r8.jpg": "https://files.leadconnectorhq.com/file/6afb929977a01e46223ab392/poster-r8.jpg", "poster-r9.jpg": "https://files.leadconnectorhq.com/file/6afb92a077a01e46223ab462/poster-r9.jpg", "r1.mp4": "https://files.leadconnectorhq.com/file/6afb92b5893246071fd289c2/r1.mp4", "r2.mp4": "https://files.leadconnectorhq.com/file/6afb92bffdf6b54fd77e3dc2/r2.mp4", "r3.mp4": "https://files.leadconnectorhq.com/file/6afb92c8893246071fd28b98/r3.mp4", "r4.mp4": "https://files.leadconnectorhq.com/file/6afb92d26223b8139d6f72dd/r4.mp4", "r8.mp4": "https://files.leadconnectorhq.com/file/6afb92dca30b968e3fd7d7b1/r8.mp4", "r9.mp4": "https://files.leadconnectorhq.com/file/6afb92e57c3b573a6290d7aa/r9.mp4"};
+var CFG={
+  formId:"DKeChUEzeLI0mEbED74N",            /* ID del formulario de GHL. Vacío = formulario de demostración */
+  media:"",             /* prefijo de URL para imágenes/videos (vacío = rutas relativas) */
+  instagram:"",         /* https://instagram.com/usuario */
+  whatsapp:"",          /* número con código de país, solo dígitos */
+  reels:[["r9","Toma acción"],["r8","A quién estoy buscando"],["r1","La industria de seguros"],["r3","Mentalidad"],["r2","Hablemos claro"],["r4","Un día conmigo"]]
+};
+var R=document.getElementById('jh'),$=function(s){return R.querySelector(s)};
+document.documentElement.style.scrollBehavior='smooth';
+
+/* parallax del título */
+var h1=$('#jhH1');if(!matchMedia('(prefers-reduced-motion:reduce)').matches)addEventListener('scroll',function(){if(scrollY<900)h1.style.translate='0 '+(scrollY*.12)+'px'},{passive:true});
+
+/* reveal */
+var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12}):null;
+R.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%3*90)+'ms';io?io.observe(el):el.classList.add('in')});
+
+/* reels */
+var rw=$('#jhReels');
+CFG.reels.forEach(function(r){
+  var d=document.createElement('div');d.className='reel';
+  d.innerHTML='<img loading="lazy" alt="" src="'+U['poster-'+r[0]+'.jpg']+'"><button type="button" aria-label="Reproducir video: '+r[1]+'"><span><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><em>'+r[1]+'</em>';
+  d.querySelector('button').onclick=function(){
+    rw.querySelectorAll('video').forEach(function(v){v.pause()});
+    var v=document.createElement('video');v.src=U[r[0]+'.mp4'];v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.poster=U['poster-'+r[0]+'.jpg'];
+    d.innerHTML='';d.appendChild(v);var p=v.play();if(p&&p.catch)p.catch(function(){});
+    v.onplay=function(){rw.querySelectorAll('video').forEach(function(o){if(o!==v)o.pause()})};
+  };
+  rw.appendChild(d);
+});
+$('#jhPrev').onclick=function(){rw.scrollBy({left:-270,behavior:'smooth'})};
+$('#jhNext').onclick=function(){rw.scrollBy({left:270,behavior:'smooth'})};
+
+/* pasos */
+var S=[["Aplica","Llena el formulario en menos de 2 minutos. Revisamos tu solicitud personalmente."],["Llamada de admisión","Te contactamos para conocerte, explicarte la oportunidad y resolver todas tus dudas."],["Licénciate","Te orientamos paso a paso para obtener tu licencia de seguros de vida."],["Entrénate","Aprendes el sistema junto a líderes con experiencia, con capacitación constante."],["Vende y lidera","Proteges familias, generas tus comisiones y puedes construir tu propio equipo."]];
+var tb=$('#jhTabs'),cur=0,auto=true;
+function setS(i){cur=i;[].forEach.call(tb.children,function(b,j){b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});$('#jhT').textContent=S[i][0];$('#jhD').textContent=S[i][1];$('#jhBig').textContent=i+1;$('#jhBar').style.width=((i+1)/S.length*100)+'%'}
+S.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.innerHTML='<b>0'+(i+1)+'</b>'+s[0];b.onclick=function(){auto=false;setS(i)};
+  b.onkeydown=function(e){var k=e.key,n=k==='ArrowDown'||k==='ArrowRight'?1:k==='ArrowUp'||k==='ArrowLeft'?-1:0;if(n){e.preventDefault();auto=false;setS((cur+n+S.length)%S.length);tb.children[cur].focus()}};tb.appendChild(b)});
+setS(0);
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(function(){if(auto)setS((cur+1)%S.length)},4200);
+
+/* perfil */
+var Q=["Quiero construir mi propio negocio y no depender de un sueldo fijo.","Busco flexibilidad para manejar mi tiempo.","Estoy dispuesto a aprender y a seguir un sistema.","Tengo o estoy dispuesto a sacar mi licencia de seguros de vida.","Me motiva ayudar a proteger a las familias."];
+var ck=$('#jhChk');
+Q.forEach(function(q){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.innerHTML='<i>✓</i><span>'+q+'</span>';b.onclick=function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');upd()};ck.appendChild(b)});
+function upd(){var n=ck.querySelectorAll('[aria-pressed=true]').length;$('#jhRing').style.setProperty('--p',n/Q.length*100);$('#jhPct').textContent=n+'/'+Q.length;
+  var t=n===0?["Marca lo que te describe","No necesitas cumplir todo: lo más importante son las ganas de aprender."]:n<3?["Vas por buen camino","Ya tienes parte de lo que buscamos. Conversemos y resolvemos tus dudas."]:n<5?["Tienes el perfil","Coincides con la mayoría de lo que buscamos. El siguiente paso es tu llamada de admisión."]:["Eres justo a quien buscamos","Cumples todo el perfil. Solicita tu llamada y hablemos esta semana."];
+  $('#jhRT').textContent=t[0];$('#jhRD').textContent=t[1]}
+
+/* formulario */
+var fw=$('#jhForm');
+if(CFG.formId){
+  fw.className='ghl';
+  fw.innerHTML='<iframe src="https://api.leadconnectorhq.com/widget/form/'+CFG.formId+'" id="inline-'+CFG.formId+'" title="Formulario de solicitud" data-layout="{\'id\':\'INLINE\'}" data-form-id="'+CFG.formId+'" data-height="900" scrolling="no"></iframe>';
+  var sc=document.createElement('script');sc.src='https://link.msgsndr.com/js/form_embed.js';document.body.appendChild(sc);
+}else{
+  var o=function(n,a){return '<div class="opts" role="radiogroup">'+a.map(function(x){return '<label><input type="radio" name="'+n+'" value="'+x+'" required>'+x+'</label>'}).join('')+'</div>'};
+  var sel=function(n,a){return '<select name="'+n+'" id="f_'+n+'" required><option value="">Selecciona…</option>'+a.map(function(x){return '<option>'+x+'</option>'}).join('')+'</select>'};
+  fw.innerHTML='<div class="prog"><i id="jhP"></i></div><form id="jhF" novalidate>'+
+  '<fieldset class="on"><legend>Empecemos por ti</legend><label for="f_n">Nombre completo</label><input id="f_n" name="nombre" type="text" autocomplete="name" required><label for="f_t">Teléfono</label><input id="f_t" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required><label for="f_e">Email</label><input id="f_e" name="email" type="email" autocomplete="email" required></fieldset>'+
+  '<fieldset><legend>¿Dónde estás?</legend><label for="f_estado">¿En qué estado resides?</label><input id="f_estado" name="estado" type="text" autocomplete="address-level1" required><label for="f_edad">Edad</label><input id="f_edad" name="edad" type="number" inputmode="numeric" min="18" max="99" required><label>¿Tienes tus papeles en regla?</label>'+o('papeles',['Sí, por supuesto que sí','No, aún no los tengo'])+'</fieldset>'+
+  '<fieldset><legend>Tu experiencia</legend><label>¿Tienes licencia de seguros de vida?</label>'+o('licencia',['Sí, ya cuento con licencia','No, aún no la tengo'])+'<label for="f_exp">¿Has trabajado antes con ventas?</label><textarea id="f_exp" name="experiencia" rows="3" placeholder="Cuéntanos brevemente…" required></textarea></fieldset>'+
+  '<fieldset><legend>Tus metas</legend><label for="f_expectativa">¿Qué esperas de este negocio?</label>'+sel('expectativa',['Un ingreso adicional','Reemplazar mi empleo actual','Construir y liderar un equipo','Aprender una nueva carrera'])+'<label for="f_aspiracion">¿Cuánto aspiras ganar en un mes?</label>'+sel('aspiracion',['$2,000 – $5,000','$5,000 – $10,000','Más de $10,000'])+'<div class="legal"><input type="checkbox" id="f_ok" required><label for="f_ok" style="margin:0;font-weight:400;font-size:12px">Acepto recibir mensajes y llamadas de Jusem Hajali sobre esta oportunidad. Pueden aplicar tarifas de mensajes y datos. Responde STOP para cancelar.</label></div></fieldset>'+
+  '<div class="err" id="jhE" role="alert"></div><div class="fnav"><button type="button" class="btn back" id="jhB" hidden>←</button><button type="submit" class="btn" id="jhN">Continuar</button></div></form>';
+  var F=$('#jhF'),fs=F.querySelectorAll('fieldset'),st=0;
+  function show(){fs.forEach(function(f,i){f.classList.toggle('on',i===st)});$('#jhP').style.width=((st+1)/fs.length*100)+'%';$('#jhB').hidden=st===0;$('#jhN').textContent=st===fs.length-1?'Agendar una llamada':'Continuar';$('#jhE').textContent=''}
+  $('#jhB').onclick=function(){st--;show()};
+  F.onsubmit=function(e){e.preventDefault();var bad=[].find.call(fs[st].querySelectorAll('input,select,textarea'),function(i){return !i.checkValidity()});
+    if(bad){$('#jhE').textContent=bad.type==='email'?'Revisa tu email.':'Completa los campos para continuar.';bad.focus();return}
+    if(st<fs.length-1){st++;show();var f=fs[st].querySelector('input,select,textarea');if(f)f.focus({preventScroll:true})}
+    else fw.innerHTML='<div class="done"><b>✓</b><legend>¡Solicitud lista!</legend><p style="color:#51657A">Vista previa: en la página publicada, esta solicitud entra directo al CRM y al equipo de Jusem.</p></div>'};
+  show();
+}
+
+/* redes */
+var so=$('#jhSoc');
+if(CFG.instagram)so.innerHTML+='<a href="'+CFG.instagram+'" target="_blank" rel="noopener">Instagram</a>';
+if(CFG.whatsapp)so.innerHTML+='<a href="https://wa.me/'+CFG.whatsapp+'" target="_blank" rel="noopener">WhatsApp</a>';
+
+/* cta móvil */
+var m=$('#jhM'),ap=$('#aplicar');
+addEventListener('scroll',function(){var r=ap.getBoundingClientRect();m.classList.toggle('show',scrollY>500&&(r.top>innerHeight||r.bottom<0))},{passive:true});
+})();
+</script>
+<!-- ====== FIN BLOQUE JUSEM ====== -->
